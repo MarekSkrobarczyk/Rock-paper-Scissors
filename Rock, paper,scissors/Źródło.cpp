@@ -60,25 +60,16 @@ bool gamePlayLogic(int player, int enemy)
 	}
 }
 
-//void Play()
-//{
-
-//}
-
-int main()
-
+void Play()
 {
-	
-	
 	short menuChoose;
-
+	short playerChoose;
+	short pointsPlayer = 0;
+	short pointsEnemy = 0;
 	mainTitle();
 
 
 	std::cin >> menuChoose;
-	short playerChoose;
-	short pointsPlayer = 0;
-	short pointsEnemy = 0;
 
 	switch (menuChoose)
 	{
@@ -100,10 +91,10 @@ int main()
 
 			std::cin >> playerChoose;
 
-			std::cout << "You chose a " << enemyChoose[playerChoose - 1] << " your opponent chose " << enemyChoose[number] << std::endl ;
+			std::cout << "You chose a " << enemyChoose[playerChoose - 1] << " your opponent chose " << enemyChoose[number] << std::endl;
 
-			resault = gamePlayLogic((playerChoose-1), number);
-			if ((resault == true) && (playerChoose-1 != number))
+			resault = gamePlayLogic((playerChoose - 1), number);
+			if ((resault == true) && (playerChoose - 1 != number))
 			{
 				pointsPlayer += 1;
 			}
@@ -113,7 +104,7 @@ int main()
 				pointsEnemy += 1;
 			}
 
-			std::cout << "\n\n\n\n player: " << pointsPlayer << " enemy:" << pointsEnemy << std::endl << std::endl ;
+			std::cout << "\n\n\n\n player: " << pointsPlayer << " enemy:" << pointsEnemy << std::endl << std::endl;
 
 		} while ((pointsEnemy <= 2) && (pointsPlayer <= 2));
 
@@ -127,10 +118,22 @@ int main()
 		instruction();
 		break;
 
-	//case 3:
+		//case 3:
 
-	///	std::cout << " Option not available in demo version. Contact the manufacturer to purchase the full version. ";
+		///	std::cout << " Option not available in demo version. Contact the manufacturer to purchase the full version. ";
 
-	    }
+	}
+
+}
+
+int main()
+
+{
+	Play();
+	
+	
+	
+
+	
 }
 
