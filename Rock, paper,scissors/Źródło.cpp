@@ -3,9 +3,11 @@
 #include <ctime>
 #include <string>
 
+void Play();
 
 void mainTitle()
 {
+	system("CLS");
 	std::cout << " Welcome to the game, Rock, Paper, Scissors ! \n\n";
 	std::cout << " Choose one of the options: \n\n"
 		<< " 1. Play ! !!! \n"
@@ -17,6 +19,7 @@ void mainTitle()
 void instruction()
 {
 	char backToMenu;
+	system("CLS");
 
 	do {
 
@@ -27,8 +30,9 @@ void instruction()
 			<< " 3. Scissors split the paper \n 4. Beer beats everyone \n\n";
 		std::cout << " Press Q to return to main menu ";
 		std::cin >> backToMenu;
-	} while ((backToMenu != 'q') || (backToMenu != 'Q'));
+	} while (!(backToMenu == 'q') || (backToMenu == 'Q'));
 
+	Play();
 	
 	
 }
@@ -86,6 +90,10 @@ void Play()
 			int number = (rand() % 4);
 			std::string enemyChoose[]{ "Rock", "Paper", "Scissors", "Beer" };
 
+			system("CLS");
+
+			std::cout << " player: " << pointsPlayer << " enemy:" << pointsEnemy << std::endl << std::endl;
+
 			std::cout << " We play best of three, what do you choose? \n"
 				<< " 1. Rock \n 2. Paper\n 3. Scissors\n 4. Beer \n\n";
 
@@ -104,7 +112,7 @@ void Play()
 				pointsEnemy += 1;
 			}
 
-			std::cout << "\n\n\n\n player: " << pointsPlayer << " enemy:" << pointsEnemy << std::endl << std::endl;
+			
 
 		} while ((pointsEnemy <= 2) && (pointsPlayer <= 2));
 
@@ -118,20 +126,29 @@ void Play()
 		instruction();
 		break;
 
-		//case 3:
-
-		///	std::cout << " Option not available in demo version. Contact the manufacturer to purchase the full version. ";
+	case 3:
+	{
+		std::cout << " Option not available in demo version. Contact the manufacturer to purchase the full version. ";
+		exit(3);
 
 	}
-
+	}
 }
 
 int main()
 
 {
-	Play();
-	
-	
+	char playAgain;
+	do
+	{
+
+		Play();
+		system("CLS");
+		std::cout << "\n Do you wanna play again ? \n If yes, press Y :), if no... GO  TO HELL !!!!  ";
+
+		std::cin >> playAgain; 
+
+	} while ((playAgain == 'y') || (playAgain == 'Y'));
 	
 
 	
