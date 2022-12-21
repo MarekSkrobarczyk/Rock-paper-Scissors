@@ -49,11 +49,15 @@ bool gamePlayLogic(int player, int enemy)
 	else if (player == enemy)
 	{
 		std::cout << " \n We're tied, no point !";
-		return false;
+		return true;
 	}
 
 	else
-		return false; 
+	{
+		std::cout << " You loose :( Shit happens ";
+
+	return false;
+	}
 }
 
 //void Play()
@@ -104,12 +108,12 @@ int main()
 				pointsPlayer += 1;
 			}
 
-			else if ((resault = false) && (playerChoose -1 != number))
+			else if ((resault == false) && (playerChoose - 1 != number))
 			{
 				pointsEnemy += 1;
 			}
 
-			std::cout << "\n\n\n\n player: " << pointsPlayer << " enemy:" << pointsEnemy;
+			std::cout << "\n\n\n\n player: " << pointsPlayer << " enemy:" << pointsEnemy << std::endl << std::endl ;
 
 		} while ((pointsEnemy <= 2) && (pointsPlayer <= 2));
 
